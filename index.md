@@ -94,6 +94,21 @@ workshop is only open to people from a particular institution.
 
 {% comment %}
 LOCATION
+
+This block displays the address and links to maps showing directions
+if the latitude and longitude of the workshop have been set.  You
+can use https://itouchmap.com/latlong.html to find the lat/long of an
+address.
+{% endcomment %}
+{% if page.latlng %}
+<p id="where">
+  <strong>Where:</strong>
+  {{page.address}}.
+  Get directions with
+  <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
+</p>
 <p><strong>Search Everything:</strong></p>
 
  
@@ -211,20 +226,6 @@ LOCATION
 </div>
 
 </form>
-This block displays the address and links to maps showing directions
-if the latitude and longitude of the workshop have been set.  You
-can use https://itouchmap.com/latlong.html to find the lat/long of an
-address.
-{% endcomment %}
-{% if page.latlng %}
-<p id="where">
-  <strong>Where:</strong>
-  {{page.address}}.
-  Get directions with
-  <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
-  or
-  <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
-</p>
 {% endif %}
 
 {% comment %}
